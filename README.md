@@ -12,6 +12,16 @@ Extension pour **GEO** qui ajoute dans l'en-tête de l'application un petit tabl
 
 > Les tâches sont stockées localement dans le navigateur : elles ne sont ni partagées entre utilisateurs ni entre postes.
 
+## Aperçu
+
+| Tableau des tâches | Texte complet au clic | Ajout d'une tâche |
+| :---: | :---: | :---: |
+| ![Tableau des tâches dans l'en-tête GEO](docs/apercu.png) | ![Affichage du texte complet d'une tâche](docs/texte-complet.png) | ![Saisie d'une nouvelle tâche multi-ligne](docs/ajout-tache.png) |
+
+- **Tableau des tâches** : le bouton GeoNotes de l'en-tête ouvre les trois colonnes, avec le nombre de tâches de chacune.
+- **Texte complet au clic** : une tâche longue est tronquée sur 2 lignes ; un clic l'affiche en entier.
+- **Ajout d'une tâche** : le champ s'agrandit à la saisie, `Entrée` passe à la ligne et `Ctrl+Entrée` (ou le bouton **+**) ajoute la tâche dans **À faire**.
+
 ## Installation
 
 1. Télécharger `GeoNotes-<version>.zip` depuis la page [Releases](../../releases).
