@@ -1,0 +1,16 @@
+{
+    "name": "GeoNotes",
+    "displayName": "GeoNotes",
+    "version": "1.0.0",
+    "minGeoVersion": "3.0.0",
+    "author": "tristan.barre@vallonsdehautebretagne.fr",
+    "allowMultiple": false,
+    "preview" : "preview.png",
+    "reuseConfiguration": true,
+    "code": {
+        "moduleName": "GeoNotes",
+        "dependencies": ["bg.acf.base","bg.common.geo.GeoApi"]
+    },
+    "configuration": [
+    ]
+}
