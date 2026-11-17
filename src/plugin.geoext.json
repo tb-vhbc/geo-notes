@@ -1,10 +1,10 @@
 {
     "name": "GeoNotes",
     "displayName": "GeoNotes",
-    "version": "1.0.0",
+    "version": "1.1.1",
     "minGeoVersion": "3.0.0",
     "author": "tristan.barre@vallonsdehautebretagne.fr",
-    "allowMultiple": false,
+    "allowMultiple": true,
     "preview" : "preview.png",
     "reuseConfiguration": true,
     "code": {

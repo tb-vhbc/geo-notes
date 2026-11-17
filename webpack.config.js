@@ -7,6 +7,24 @@ require('dotenv').config();
 // Publication sur GEO : `npm run geo:publish` (ou `webpack --env publish`)
 const definitionPath = path.resolve(__dirname, 'src/plugin.geoext.json');
 
+// Minifie le JS (terser) et le JSON ; renvoie les autres fichiers inchangés.
+// Le module Angular utilise des annotations d'injection en tableau : le renommage des variables est sans risque.
+async function minify(content, absoluteFrom) {
+  const ext = path.extname(absoluteFrom).toLowerCase();
+  if (ext === '.js') {
+    const { code } = await require('terser').minify(content.toString(), {
+      compress: true,
+      mangle: true,
+      format: { comments: false }
+    });
+    return code;
+  }
+  if (ext === '.json') {
+    return JSON.stringify(JSON.parse(content.toString()));
+  }
+  return content;
+}
+
 module.exports = (env = {}) => {
   const publish = !!env.publish || process.env.GEO_PUBLISH === 'true';
 
@@ -17,7 +35,15 @@ module.exports = (env = {}) => {
   const plugins = [
     new CopyPlugin({
       patterns: [
-        { from: 'src', to: './' }
+        {
+          from: 'src',
+          to: './',
+          // Minification des fichiers copiés dans dist/ (les autres, ex. preview.png, sont copiés tels quels)
+          transform: {
+            transformer: minify,
+            cache: true
+          }
+        }
       ]
     }),
     new ZipPlugin({
