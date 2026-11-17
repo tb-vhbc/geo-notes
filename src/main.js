@@ -198,7 +198,7 @@ class GeoNotes {
 	// https://geo.../aws/app/<id>/index.html -> <id>
 	static storageKey(){
 		var match = window.location.pathname.match(/\/app\/([^\/]+)/);
-		return match ? 'notes-' || match[1] : window.location.pathname;
+		return match ? 'notes-' + match[1] : window.location.pathname;
 	}
 
 	static load(key){
